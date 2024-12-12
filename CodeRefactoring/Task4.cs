@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 
 namespace CodeRefactoring
 {
@@ -9,7 +10,12 @@ namespace CodeRefactoring
         /// </summary>
         public static int Fibonacci(int n)
         {
-            if (n <= 2)
+            if (n <= 0)
+            {
+                throw new ArgumentException("arg must be +ve",nameof(n));
+               
+            }
+            if (n <=2)
             {
                 return 1;
             }
@@ -24,7 +30,7 @@ namespace CodeRefactoring
                 current = next;
             }
 
-            return prev;
+            return current;
         }
     }
 }
